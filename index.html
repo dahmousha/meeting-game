@@ -82,7 +82,7 @@ h1{font-size:clamp(30px,8vw,42px);line-height:1.5;margin:0 0 18px;font-weight:70
   <div class="in">
     <div class="kicker">تحدٍّ قصير · دقيقتان</div>
     <h1>اجتماع انتهى دون نتيجة. من أي جملة بدأت المشكلة؟</h1>
-    <p class="lead">اقرأ الحوار واضغط على الجملة التي بدأت منها المشكلة. لديك محاولتان. بعدها سؤال واحد عن اجتماعاتك أنت.</p>
+    <p class="lead">اقرأ الحوار واضغط على الجملة التي بدأت منها المشكلة. بعدها سؤال واحد عن اجتماعاتك أنت.</p>
     <div class="preview" aria-hidden="true"><span>نبدأ؟</span><span>أنا عندي اقتراح</span><span>تمام، اتفقنا</span></div>
     <button class="btn go" id="go">ابدأ</button>
   </div>
@@ -181,8 +181,7 @@ $("thread").addEventListener("click",e=>{
   const k=+b.dataset.k;tries++;
   if(k===m.root){finish(true);return}
   b.classList.add("tried");b.disabled=true;
-  if(tries>=2){finish(false);return}
-  $("fb").innerHTML=`<b>ليست هذه. لديك محاولة أخرى.</b>${m.h[k]||""}`;
+  $("fb").innerHTML=`<b>ليست هذه. حاول مرة أخرى.</b>${m.h[k]||""}`;
 });
 function drawChk(){$("chk").innerHTML=Q.map((q,k)=>`<button class="opt" aria-pressed="false" data-k="${k}">${q[0]}</button>`).join('')}
 $("chk").addEventListener("click",e=>{const b=e.target.closest(".opt");if(!b)return;b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true")});
